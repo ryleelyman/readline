@@ -4,13 +4,11 @@ const Build = std.Build;
 pub fn build(b: *Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
-    const configure = b.addSystemCommand(&.{"./configure"});
     const readline = b.addStaticLibrary(.{
         .name = "readline",
         .target = target,
         .optimize = optimize,
     });
-    readline.step.dependOn(&configure.step);
     readline.addIncludePath("..");
     readline.addIncludePath(".");
     readline.addCSourceFiles(&readline_sources, &.{
