@@ -9,6 +9,7 @@ pub fn build(b: *Build) void {
         .target = target,
         .optimize = optimize,
     });
+    readline.defineCMacro("READLINE_LIBRARY", "1");
     readline.addIncludePath("..");
     readline.addIncludePath(".");
     readline.addCSourceFiles(&readline_sources, &.{
@@ -16,7 +17,6 @@ pub fn build(b: *Build) void {
         "-DRL_LIBRARY_VERSION=\"8.2\"",
         "-DBRACKETED_PASTE_DEFAULT=1",
     });
-    readline.defineCMacro("READLINE_LIBRARY", "1");
     readline.linkLibC();
     readline.linkSystemLibrary("ncurses");
     readline.use_llvm = true;
@@ -24,6 +24,9 @@ pub fn build(b: *Build) void {
     readline.installHeader("readline.h", "readline/readline.h");
     readline.installHeader("history.h", "readline/history.h");
     readline.installHeader("rlstdc.h", "readline/rlstdc.h");
+    readline.installHeader("rltypedefs.h", "readline/rltypedefs.h");
+    readline.installHeader("keymaps.h", "readline/keymaps.h");
+    readline.installHeader("tilde.h", "readline/tilde.h");
 }
 
 const readline_sources = .{
