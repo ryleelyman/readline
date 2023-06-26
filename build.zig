@@ -16,6 +16,7 @@ pub fn build(b: *Build) void {
         "-DRL_LIBRARY_VERSION=\"8.2\"",
         "-DBRACKETED_PASTE_DEFAULT=1",
     });
+    readline.defineCMacro("READLINE_LIBRARY", "1");
     readline.linkLibC();
     readline.linkSystemLibrary("ncurses");
     readline.use_llvm = true;
