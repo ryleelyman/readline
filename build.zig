@@ -27,6 +27,7 @@ pub fn build(b: *Build) void {
     readline.installHeader("rltypedefs.h", "readline/rltypedefs.h");
     readline.installHeader("keymaps.h", "readline/keymaps.h");
     readline.installHeader("tilde.h", "readline/tilde.h");
+    readline.installHeader("chardefs.h", "readline/chardefs.h");
 }
 
 const readline_sources = .{
