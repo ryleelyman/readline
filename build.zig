@@ -4,11 +4,13 @@ const Build = std.Build;
 pub fn build(b: *Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
+    const configure = b.addSystemCommand(&.{"./configure"});
     const readline = b.addStaticLibrary(.{
         .name = "readline",
         .target = target,
         .optimize = optimize,
     });
+    readline.step.dependOn(&configure.step);
     readline.addIncludePath("..");
     readline.addIncludePath(".");
     readline.addCSourceFiles(&readline_sources, &.{
@@ -22,7 +24,6 @@ pub fn build(b: *Build) void {
     b.installArtifact(readline);
     readline.installHeader("readline.h", "readline/readline.h");
     readline.installHeader("history.h", "readline/history.h");
-    readline.installHeader("config.h", "readline/config.h");
 }
 
 const readline_sources = .{
