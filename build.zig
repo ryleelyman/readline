@@ -22,6 +22,7 @@ pub fn build(b: *Build) void {
     b.installArtifact(readline);
     readline.installHeader("readline.h", "readline/readline.h");
     readline.installHeader("history.h", "readline/history.h");
+    readline.installHeader("config.h", "readline/config.h");
 }
 
 const readline_sources = .{
