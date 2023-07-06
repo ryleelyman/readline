@@ -19,18 +19,6 @@
 #undef _FILE_OFFSET_BITS
 
 /* Characteristics of the compiler. */
-#undef inline
-
-#undef sig_atomic_t
-
-#undef size_t
-
-#undef ssize_t
-
-#undef const
-
-#undef volatile
-
 #undef PROTOTYPES
 #undef __PROTOTYPES
 
@@ -141,7 +129,7 @@
 #undef HAVE_VSNPRINTF
 
 /* Define if you have the wcrtomb function.  */
-#undef HAVE_WCRTOMB 
+#undef HAVE_WCRTOMB
 
 /* Define if you have the wcscoll function.  */
 #undef HAVE_WCSCOLL
@@ -251,13 +239,13 @@
 #undef HAVE_MBSTATE_T
 
 /* Define if you have wchar_t in <wctype.h>. */
-#undef HAVE_WCHAR_T 
+#undef HAVE_WCHAR_T
 
 /* Define if you have wctype_t in <wctype.h>. */
 #undef HAVE_WCTYPE_T
 
 /* Define if you have wint_t in <wctype.h>. */  
-#undef HAVE_WINT_T  
+#undef HAVE_WINT_T
 
 /* Define if you have <langinfo.h> and nl_langinfo(CODESET). */
 #undef HAVE_LANGINFO_CODESET
