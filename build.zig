@@ -9,7 +9,7 @@ pub fn build(b: *Build) void {
         .target = target,
         .optimize = optimize,
     });
-    // readline.defineCMacro("READLINE_LIBRARY", "1");
+    readline.defineCMacro("READLINE_LIBRARY", "1");
     readline.addIncludePath("..");
     readline.addIncludePath(".");
     readline.addCSourceFiles(&readline_sources, &.{
