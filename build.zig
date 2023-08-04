@@ -10,8 +10,8 @@ pub fn build(b: *Build) void {
         .optimize = optimize,
     });
     readline.defineCMacro("READLINE_LIBRARY", "1");
-    readline.addIncludePath("..");
-    readline.addIncludePath(".");
+    readline.addIncludePath(.{ .path = ".." });
+    readline.addIncludePath(.{ .path = "." });
     readline.addCSourceFiles(&readline_sources, &.{
         "-DHAVE_CONFIG_H",
         "-DRL_LIBRARY_VERSION=\"8.2\"",
@@ -91,7 +91,7 @@ const linux_config_h_vals = .{
     ._POSIX_PTHREAD_SEMANTICS = 1,
     ._TANDEM_SOURCE = 1,
     ._MINIX = 0,
-    .NO_MULTIBYTE_SUPPORT = 0,
+    .NO_MULTIBYTE_SUPPORT = 1,
     ._FILE_OFFSET_BITS = 0,
     .PROTOTYPES = 1,
     .__PROTOTYPES = 1,
